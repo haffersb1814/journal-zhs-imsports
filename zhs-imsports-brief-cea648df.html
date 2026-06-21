@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>im体育 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f5f7;
+            color: #2d3a4a;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border: 1px solid #e4e7ec;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.06);
+            padding: 3rem 2.5rem 2.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1f2a38;
+            margin-bottom: 1rem;
+        }
+        .hero h1 span {
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 660px;
+            margin: 0 auto 1.6rem;
+            color: #445566;
+        }
+        .hero .meta-note {
+            display: inline-block;
+            font-size: 0.85rem;
+            background: #eceff3;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            color: #3f4f60;
+            border: 1px solid #dce0e6;
+        }
+
+        /* 卡片通用 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e6e9ee;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            padding: 1.8rem 1.8rem 2rem;
+            transition: box-shadow 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1f2b3a;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eef1f5;
+        }
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #3d4d5e;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card li {
+            padding: 0.35rem 0 0.35rem 1.3rem;
+            position: relative;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.1rem;
+            font-weight: 600;
+            color: #7d8b9e;
+        }
+
+        /* 说明区 wide */
+        .section-wide {
+            background: #ffffff;
+            border: 1px solid #e6e9ee;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            padding: 2rem 2.2rem 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-wide h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1f2b3a;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eef1f5;
+        }
+        .section-wide p {
+            font-size: 0.98rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* faq */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .faq-item {
+            padding: 0.8rem 1rem;
+            background: #f8f9fc;
+            border-radius: 14px;
+            border: 1px solid #eef0f4;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1e3a5f;
+            font-size: 0.98rem;
+            margin-bottom: 0.15rem;
+        }
+        .faq-item p {
+            margin: 0;
+            font-size: 0.93rem;
+            color: #455a6e;
+        }
+
+        /* footer */
+        .footer-links {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 1px solid #e0e4ea;
+            font-size: 0.9rem;
+            color: #5b6e80;
+        }
+        .footer-links a {
+            color: #1e3a5f;
+            text-decoration: none;
+            font-weight: 460;
+            border-bottom: 1px dotted #b6c2cf;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #1e3a5f;
+        }
+        .footer-links .sep {
+            margin: 0 0.7rem;
+            color: #bcc5d1;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .section-wide {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>信息索引 · <span>im体育</span></h1>
+        <p>一个围绕运动资料、赛事结构与数据整理的轻量级索引页面。基于公开信息与常见知识框架，帮助使用者快速定位与理解相关资源。</p>
+        <div class="meta-note">落地页 · 知识型 · 2025</div>
+    </div>
+
+    <!-- 优势区 + 说明区 两栏布局 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>资料结构</h2>
+            <ul>
+                <li>赛事层级与赛季分类</li>
+                <li>积分、排名与统计口径</li>
+                <li>队伍/选手档案与历史记录</li>
+                <li>新闻聚合与官方信息渠道</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>整理维度</h2>
+            <ul>
+                <li>按联赛/杯赛/地区分类索引</li>
+                <li>时间轴：近期、历史与前瞻</li>
+                <li>数据可视化：图表与趋势</li>
+                <li>中立参考：不包含主观预测</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区：场景与应用 -->
+    <div class="section-wide">
+        <h2>信息场景与使用提示</h2>
+        <p>本索引页面向对赛事数据、运动统计或资料整合有需求的用户。通过结构化的目录与分类，可以快速定位到某一联赛、赛季或特定队伍的公开信息。建议搭配官方数据源或可靠媒体交叉引用，以获得更全面的背景。<br>
+        例如，在查阅某支球队近五场表现时，可结合积分榜、进球分布以及交手记录进行横向比较。索引本身并不生成分析结论，而是提供清晰的信息入口与关联线索。</p>
+        <p style="margin-bottom:0">资料整理过程中，优先采用赛事官方发布的原始数据与时间戳，同时标注信息更新日期。对于非官方来源，会尽量注明参考出处，便于使用者自行核实。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section-wide">
+        <h2>常见问题摘要</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <strong>索引涵盖哪些运动类型？</strong>
+                <p>以主流团队球类、田径及部分格斗项目为主，后续会根据资料丰富度逐步扩展。具体分类可在 <a href="https://zhs-imsports.com">im体育</a> 的目录树中查看。</p>
+            </div>
+            <div class="faq-item">
+                <strong>数据更新频率如何？</strong>
+                <p>常规赛事期间每日同步，休赛期每周更新两次。所有数据均标注抓取或录入时间，历史数据保留至少三个完整赛季。</p>
+            </div>
+            <div class="faq-item">
+                <strong>能否直接用于学术研究？</strong>
+                <p>本索引可作为线索参考，但正式研究建议回查原始数据源。每条信息均提供来源标识，你可以据此追溯第一手资料。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <span>资料索引 · 公开信息整理</span>
+        <span class="sep">|</span>
+        <a href="https://zhs-imsports.com">im体育</a>
+        <span class="sep">|</span>
+        <span>结构版本 2025.04</span>
+    </div>
+
+</div>
+</body>
+</html>
